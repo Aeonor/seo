@@ -6,8 +6,29 @@ body {
   background: @body_color;
 }
 
-header {
+body>header {
   #logo {
     display: inline-block;
+  }
+}
+
+body>.navbar{
+  margin: 20px 0;
+  .navbar-inner {
+    background: #f8f8f8;
+    border: 0; 
+    .border-radius(0);
+    border-top: 1px solid #f1f1f1;
+    border-bottom: 1px solid #f6f6f6;
+  }
+
+  .btn-navbar{
+    float: left;
+  }
+  form {
+    margin: 0;
+    .input-append {
+      margin: 5px 0;
+    }
   }
 }
