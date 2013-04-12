@@ -2,22 +2,24 @@ html, body, #wrapper {
   height:100%;
 }
 
-html {
-  position: relative;
-  min-height: 100%;
-}
-
-
-@height-footer: 150px;
+@height-footer: 110px;
 body {
-  background: @body_color;
-  margin: 0 0 (@height-footer+100px);
+  background-color: #fefefe;
+  margin: 0;
   @media (max-width: 767px) {
     padding: 0;
   }
 }
 
-body>header {
+#wrapper {
+  background: @body_color;
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -(@height-footer + 41);
+}
+
+#wrapper>header {
   padding: 10px 0 0;
   .container {
     position: relative;
@@ -42,7 +44,7 @@ body>header {
   }
 }
 
-body>.navbar{
+#wrapper>.navbar{
   margin: 20px 0;
   .navbar-inner {
     background: #f8f8f8;
@@ -50,27 +52,30 @@ body>.navbar{
     .border-radius(0);
     border-top: 1px solid #f1f1f1;
     border-bottom: 1px solid #f6f6f6;
+    li a {
+      padding: 15px 20px;
+    }
   }
 
   .btn-navbar{
     float: left;
   }
   form {
-    margin: 0;
+    margin: 5px 0 0;
+    @media (max-width: 979px) {
+      margin: 0;
+    }
     .input-append {
       margin: 5px 0;
     }
   }
 }
 
+#wrapper>#push { height: @height-footer + 50; }
 body>footer { 
-  position: absolute;
-  left: 0;
-  bottom: 0;
   height: @height-footer;
-  width: 100%;
   padding: 25px 0 15px;
-  background-color: #dadada;
+  background-color: #efefef;
   background-image: -moz-linear-gradient(top, #f2f2f2, #efefef);
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f2f2f2), to(#efefef));
   background-image: -webkit-linear-gradient(top, #f2f2f2, #efefef);
@@ -78,4 +83,10 @@ body>footer {
   background-image: linear-gradient(to bottom, #f2f2f2, #efefef);
   background-repeat: repeat-x;
   border-top: 1px solid #efefef;
+  form {
+    margin: 0;
+  }
+  .clearfix {
+    clear: right;
+  }
 }
