@@ -9,6 +9,7 @@
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">  
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-responsive.min.css">  
     <link rel="stylesheet/less" type="text/css" href="less/styles.less">  
+    <link rel="stylesheet" href="aloha/css/aloha.css" type="text/css">
     <!--[if lt IE 9]><script src="js/html5shiv.js"></script><![endif]-->
     <script src="js/less-1.3.3.min.js"></script>
   </head>
@@ -31,26 +32,26 @@
       <div class="navbar ">
         <div class="container">
           <div class="navbar-inner"><div class="span12" style="float:none;margin: auto;">
-            <a class="btn btn-navbar pull-left" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
+              <a class="btn btn-navbar pull-left" data-toggle="collapse" data-target=".nav-collapse">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </a>
 
-            <form class="navbar-search pull-right hidden-phone">
-              <div class="input-append">
-                <input type="text" class="searc" placeholder="Search">
-                <button type="submit" class="btn"><i class="icon-search"></i></button>
-              </div>
-            </form>
-            <div class="nav-collapse collapse pull-left">
-              <ul class="nav">
-                <li class="active"><a href="#">Accueil</a></li>
-                <li><a href="#">Qui sommes nous ?</a></li>
-                <li><a href="#">Membres</a></li>
-                <li><a href="#">Nous contacter</a></li>
-              </ul>
-            </div></div>
+              <form class="navbar-search pull-right hidden-phone">
+                <div class="input-append">
+                  <input type="text" class="searc" placeholder="Search">
+                  <button type="submit" class="btn"><i class="icon-search"></i></button>
+                </div>
+              </form>
+              <div class="nav-collapse collapse pull-left">
+                <ul class="nav">
+                  <li class="active"><a href="#">Accueil</a></li>
+                  <li><a href="#">Qui sommes nous ?</a></li>
+                  <li><a href="#">Membres</a></li>
+                  <li><a href="#">Nous contacter</a></li>
+                </ul>
+              </div></div>
           </div>
         </div>
       </div>
@@ -59,37 +60,33 @@
         <div class="container">
           <div class="row congres">
             <div class="span6">
-              <a href="#" class="left">
-                <figure>
-                  <img src="images/biarritz.jpg" alt="Congrès de Biarritz" />
-                  <figcaption>Biarritz, Juillet 2012</figcaption>
-                </figure>
-              </a>
+              <figure>
+                <img src="images/biarritz.jpg" alt="Congrès de Biarritz" />
+                <figcaption>Biarritz, Juillet 2012</figcaption>
+              </figure>
             </div>
             <div class="span6">
-              <a href="#" class="right">
-                <figure>
-                  <img src="images/shanghai.jpg" alt="Congrès de Shanghai" />   
-                  <figcaption>Shanghai, Juillet 2013</figcaption>
-                </figure>         
-              </a>
+              <figure>
+                <img src="images/shanghai.jpg" alt="Congrès de Shanghai" />   
+                <figcaption>Shanghai, Juillet 2013</figcaption>
+              </figure>   
             </div>
           </div>
           <div class="row thumbnails">
             <ul class="inline">
-              <li class="span3">
+              <li class="span3 ">
                 <a>
-                  <h2>Qui sommes nous ?</h2>
+                  <h2 class="editable">Qui sommes nous ?</h2>
                   <figure><img src="http://fc04.deviantart.net/fs24/i/2007/329/f/0/Who_Are_We__by_MultiCurious.jpg" alt="" /></figure>
-                  <p>Et quoniam mirari posse quosdam peregrinos existimo haec lecturos forsitan, si contigerit, quamobrem cum oratio ad eerentur  et tabernas et vilitates harum similis alias, sumte sponte propria digressurus.</p>
+                  <p class="editable">Et quoniam mirari posse quosdam peregrinos existimo haec lecturos forsitan, si contigerit, quamobrem cum oratio ad eerentur  et tabernas et vilitates harum similis alias, sumte sponte propria digressurus.</p>
                 </a>
               </li>
-              
+
               <li class="span3">
                 <a>
-                  <h2>Qui sommes nous ?</h2>
+                  <h2 class="editable">Qui sommes nous ?</h2>
                   <figure><img src="http://fc04.deviantart.net/fs24/i/2007/329/f/0/Who_Are_We__by_MultiCurious.jpg" alt="" /></figure>
-                  <p>Et quoniam mirari posse quosdam peregrinos existimo haec lecturos forsitan, si contigerit, quamobrem cum oratio ad ea monstrandahil praeitates harum similis alias, summatim causas perstringam nusquam a veritate sponte propria digressurus.</p>
+                  <p class="editable">Et quoniam mirari posse quosdam peregrinos existimo haec lecturos forsitan, si contigerit, quamobrem cum oratio ad ea monstrandahil praeitates harum similis alias, summatim causas perstringam nusquam a veritate sponte propria digressurus.</p>
                 </a>
               </li>
               <li class="span3">
@@ -144,7 +141,49 @@
     </footer>
 
     <!-- javascripts -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="aloha/lib/require.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="aloha/lib/aloha.js"
+    data-aloha-plugins="common/ui,common/format,common/list,common/highlighteditables,common/link"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+    
+        var Aloha = window.Aloha || ( window.Aloha = {} );
+	
+        Aloha.settings = {
+          contentHandler: {},
+          logLevels: { 'error': true, 'warn': true, 'info': true, 'debug': false, 'deprecated': true },
+          errorhandling: false,
+          ribbon: false,
+          locale: 'en',
+          floatingmenu: {
+            width: 630,
+            behaviour: 'topalign'
+          },
+          repositories: {
+            linklist: {
+              data: [
+                { name: 'Aloha Developers Wiki', url:'https://github.com/alohaeditor/Aloha-Editor/wiki', type:'website', weight: 0.50 },
+                { name: 'Aloha Editor - The HTML5 Editor', url:'http://aloha-editor.com', type:'website', weight: 0.90 }
+              ]
+            }
+          },
+          plugins: {
+            format: {
+              // all elements with no specific configuration get this configuration
+              config: [  'b', 'i', 'p', 'sub', 'sup', 'del', 'title', 'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'pre', 'removeFormat' ],
+              editables: {
+                // no formatting allowed for title
+                '#top-text': []
+              }
+            }
+          }
+        };
+      
+      Aloha.ready( function() {
+        Aloha.jQuery('.editable').aloha();
+      });
+        
+    </script>
   </body>
 </html>
