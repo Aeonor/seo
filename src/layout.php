@@ -9,11 +9,10 @@
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">  
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-responsive.min.css">  
     <link rel="stylesheet/less" type="text/css" href="less/styles.less">  
-    <link rel="stylesheet" href="aloha/css/aloha.css" type="text/css">
     <!--[if lt IE 9]><script src="js/html5shiv.js"></script><![endif]-->
     <script src="js/less-1.3.3.min.js"></script>
   </head>
-  <body class="home">
+  <body id="<?php echo $_PAGE ?>">
     <div id="wrapper">
       <header>
         <div class="container">
@@ -22,8 +21,8 @@
               <a href="#" id="logo"><img src="images/logo.png" alt="Logo S.E.O" /></a>
             </div>
             <ul class="pull-right unstyled" id="languages">
-              <li><a href="#" class="en"><img src="images/en.png" alt="Drapeau anglais" /> English</a></li>
-              <li><a href="#" class="fr selected"><img src="images/fr.png" alt="Drapeau français" /> Français</a></li>
+              <li><a href="#" class="en<?php if ($_SESSION['lng'] == LNG_EN):?> selected<?php endif; ?>"><img src="images/en.png" alt="Drapeau anglais" /> English</a></li>
+              <li><a href="#" class="fr<?php if ($_SESSION['lng'] == LNG_FR):?> selected<?php endif; ?>"><img src="images/fr.png" alt="Drapeau français" /> Français</a></li>
             </ul>
           </div>
         </div>
@@ -58,54 +57,8 @@
 
       <section id="container">
         <div class="container">
-          <div class="row congres">
-            <div class="span6">
-              <figure>
-                <img src="images/biarritz.jpg" alt="Congrès de Biarritz" />
-                <figcaption>Biarritz, Juillet 2012</figcaption>
-              </figure>
-            </div>
-            <div class="span6">
-              <figure>
-                <img src="images/shanghai.jpg" alt="Congrès de Shanghai" />   
-                <figcaption>Shanghai, Juillet 2013</figcaption>
-              </figure>   
-            </div>
-          </div>
-          <div class="row thumbnails">
-            <ul class="inline">
-              <li class="span3 ">
-                <a>
-                  <h2 class="editable">Qui sommes nous ?</h2>
-                  <figure><span class="editable"><img src="http://fc04.deviantart.net/fs24/i/2007/329/f/0/Who_Are_We__by_MultiCurious.jpg" alt="" /></span></figure>
-                  <p class="editable">Et quoniam mirari posse quosdam peregrinos existimo haec lecturos forsitan, si contigerit, quamobrem cum oratio ad eerentur  et tabernas et vilitates harum similis alias, sumte sponte propria digressurus.</p>
-                </a>
-              </li>
-
-              <li class="span3">
-                <a>
-                  <h2 class="editable">Qui sommes nous ?</h2>
-                  <figure><img src="http://fc04.deviantart.net/fs24/i/2007/329/f/0/Who_Are_We__by_MultiCurious.jpg" alt="" /></figure>
-                  <p class="editable">Et quoniam mirari posse quosdam peregrinos existimo haec lecturos forsitan, si contigerit, quamobrem cum oratio ad ea monstrandahil praeitates harum similis alias, summatim causas perstringam nusquam a veritate sponte propria digressurus.</p>
-                </a>
-              </li>
-              <li class="span3">
-                <a>
-                  <h2>Qui sommes nous ?</h2>
-                  <figure><img src="http://fc04.deviantart.net/fs24/i/2007/329/f/0/Who_Are_We__by_MultiCurious.jpg" alt="" /></figure>
-                  <p>Et quoniam mirari posse quosdam peregrinos existimo haec lecturos forsitan, si contigerit, quamobrem cum oratio agressurus.</p>
-                </a>
-              </li>
-              <li class="span3">
-                <a>
-                  <h2>Qui sommes nous ?</h2>
-                  <figure><img src="http://fc04.deviantart.net/fs24/i/2007/329/f/0/Who_Are_We__by_MultiCurious.jpg" alt="" /></figure>
-                  <p>Et quoniam mirari posse quosdam peregrinos existimo haec lecturos forsitan, si contigerit, quamobrem cum oratio ad ea mons digressurus.</p>
-                </a>
-              </li>
-            </ul>
-          </div>
-
+           <?php echo $_CONTENTS ?>
+        </div>
       </section>
       <div id="push"></div>
     </div>
@@ -114,11 +67,8 @@
       <div class="container">
         <div class="row">
           <div class="span3">
-            <strong>S.E.O</strong><br />
-            Société Eurasienne d'Ophtalmologie<br />
-            1 rue du Moulin<br />
-            75 000 Paris<br />
-            <a href="contact.html">contact@seoph.com</a>
+            <div contentname="layout/adress"><?php echo getData('layout', $_SESSION['lng'], 'adress', '<strong>S.E.O</strong><br />Société Eurasienne d\'Ophtalmologie<br />1 rue du Moulin<br />75 000 Paris<br />') ?></div>
+            <a href="contact.html" contentname="layout/email"><?php echo getData('layout', NO_LNG, 'email', 'contact@seoph.com') ?></a>
           </div>
           <div class="span9">
             <form class="pull-right hidden-phone">
@@ -133,6 +83,7 @@
                 <li><a href="#">Accueil</a></li>
                 <li><a href="#">Accueil</a></li>
                 <li><a href="#">Accueil</a></li>
+                <li><a href="#" class="admin">Admin</a></li>
               </ul>
             </div>
           </div>
@@ -143,5 +94,7 @@
     <!-- javascripts -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="ckeditor/ckeditor.js"></script>
+    <script src="js/ckeditor.js"></script>
   </body>
 </html>
