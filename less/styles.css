@@ -1,0 +1,241 @@
+@import 'http://fonts.googleapis.com/css?family=Kreon:300|Open+Sans:400,300|Open+Sans+Condensed:300';
+/*---------------------------------------------------
+    LESS Elements 0.9
+  ---------------------------------------------------
+    A set of useful LESS mixins
+    More info at: http://lesselements.com
+  ---------------------------------------------------*/
+.blocks {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.blocks li {
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+}
+.font-kreon {
+  font-family: 'Kreon', Georgia, Arial, Verdana, Sans-serif;
+  font-weight: 300;
+}
+.font-opensans {
+  font-family: 'Open Sans', Georgia, Arial;
+  font-weight: 300;
+}
+.font-opensansc {
+  font-family: 'Open Sans Condensed', Georgia, Arial;
+  font-weight: 300;
+}
+body {
+  font-family: 'Open Sans', Georgia, Arial;
+  font-weight: 300;
+}
+#wrapper > .navbar {
+  font-family: 'Kreon', Georgia, Arial, Verdana, Sans-serif;
+  font-weight: 300;
+  font-size: 1.2em;
+}
+h1,
+h2 {
+  font-family: 'Kreon', Georgia, Arial, Verdana, Sans-serif;
+  font-weight: 300;
+}
+p {
+  text-align: justify;
+}
+html,
+body,
+#wrapper {
+  height: 100%;
+}
+body {
+  background-color: #fefefe;
+  margin: 0;
+}
+@media (max-width: 767px) {
+  body {
+    padding: 0;
+  }
+}
+body {
+  text-rendering: optimizeLegibility;
+}
+#wrapper {
+  background: #fafafa;
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -151px;
+}
+#wrapper > header {
+  padding: 10px 0 0;
+}
+#wrapper > header .container {
+  position: relative;
+}
+#wrapper > header #logo {
+  display: inline-block;
+}
+#wrapper > header #languages {
+  margin-top: 20px;
+}
+#wrapper > header #languages .selected {
+  font-weight: bold;
+}
+@media (max-width: 767px) {
+  #wrapper > header #languages {
+    position: absolute;
+    right: 0;
+    bottom: -65px;
+  }
+  #wrapper > header #languages li {
+    display: inline-block;
+    margin-right: 10px;
+  }
+}
+#wrapper > .navbar {
+  margin: 20px 0;
+}
+#wrapper > .navbar .navbar-inner {
+  background: #f8f8f8;
+  border: 0;
+  -webkit-border-top-right-radius: 0;
+  -webkit-border-bottom-right-radius: 0;
+  -webkit-border-bottom-left-radius: 0;
+  -webkit-border-top-left-radius: 0;
+  -moz-border-radius-topright: 0;
+  -moz-border-radius-bottomright: 0;
+  -moz-border-radius-bottomleft: 0;
+  -moz-border-radius-topleft: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  -moz-background-clip: padding-box;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  border-top: 1px solid #f1f1f1;
+  border-bottom: 1px solid #f6f6f6;
+}
+#wrapper > .navbar .navbar-inner li a {
+  padding: 15px 20px;
+}
+#wrapper > .navbar .btn-navbar {
+  float: left;
+}
+#wrapper > .navbar form {
+  margin: 5px 0 0;
+}
+@media (max-width: 979px) {
+  #wrapper > .navbar form {
+    margin: 0;
+  }
+}
+#wrapper > .navbar form .input-append {
+  margin: 5px 0;
+}
+#wrapper > #push {
+  height: 160px;
+}
+body > footer {
+  height: 110px;
+  padding: 25px 0 15px;
+  background-color: #efefef;
+  background-image: -moz-linear-gradient(top, #f2f2f2, #efefef);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#f2f2f2), to(#efefef));
+  background-image: -webkit-linear-gradient(top, #f2f2f2, #efefef);
+  background-image: -o-linear-gradient(top, #f2f2f2, #efefef);
+  background-image: linear-gradient(to bottom, #f2f2f2, #efefef);
+  background-repeat: repeat-x;
+  border-top: 1px solid #efefef;
+}
+body > footer form {
+  margin: 0;
+}
+body > footer .clearfix {
+  clear: right;
+}
+*[contenteditable] {
+  outline: 2px solid rgba(82, 200, 236, 0.6);
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: all border linear .2s, box-shadow linear .2s ease-out;
+  -moz-transition: all border linear .2s, box-shadow linear .2s ease-out;
+  -o-transition: all border linear .2s, box-shadow linear .2s ease-out;
+  transition: all border linear .2s, box-shadow linear .2s ease-out;
+}
+*[contenteditable]:focus {
+  outline: 2px solid rgba(174, 229, 246, 0.6);
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);
+  -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);
+}
+#home .congres {
+  margin-top: 20px;
+}
+#home .congres a {
+  display: inline-block;
+  opacity: .85;
+  -webkit-transition: all 0.2s ease-out;
+  -moz-transition: all 0.2s ease-out;
+  -o-transition: all 0.2s ease-out;
+  transition: all 0.2s ease-out;
+}
+#home .congres a:hover {
+  opacity: .999;
+}
+#home .congres figure {
+  position: relative;
+  overflow: hidden;
+  height: 200px;
+  margin: 0;
+}
+#home .congres img {
+  width: 100%;
+}
+#home .congres figcaption {
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 8px 10px;
+  color: #fff;
+}
+#home .thumbnails {
+  margin-top: 20px;
+}
+#home .thumbnails ul li {
+  padding: 0;
+}
+#home .thumbnails ul li > a {
+  display: block;
+  text-decoration: none;
+  padding: 15px;
+  margin: 0 -12px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+#home .thumbnails ul li > a:hover {
+  background-color: #f0f0f0;
+}
+#home .thumbnails h2 {
+  font-size: 1.5em;
+  color: #555;
+  margin: 0;
+  padding: 0;
+}
+#home .thumbnails p {
+  color: #333;
+}
+#home .thumbnails figure {
+  margin: 0 0 10px;
+  width: 100%;
+  height: 100px;
+  overflow: hidden;
+}
+#home .thumbnails figure img {
+  width: 100%;
+}

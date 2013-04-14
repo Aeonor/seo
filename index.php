@@ -6,11 +6,7 @@ $_PAGE  = (empty($_GET['page'])) ? 'home' : $_GET['page'];
 header('Content-Type: text/html; charset=UTF-8');
 require_once 'Mysql.class.php';
 
-
-if ( empty($_SESSION['lng']) ) {
-  $_SESSION['lng'] = LNG_FR;
-}
-
+$_SESSION['lng'] = empty($_GET['lng']) ? LNG_FR : $_GET['lng'];
 
 // PART 
 $path = __DIR__ . '/src/' . $_PAGE . '.php';

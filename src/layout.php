@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">  
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-responsive.min.css">  
-    <link rel="stylesheet/less" type="text/css" href="less/styles.less">  
+    <link rel="stylesheet" type="text/css" href="less/styles.css">  
     <!--[if lt IE 9]><script src="js/html5shiv.js"></script><![endif]-->
     <script src="js/less-1.3.3.min.js"></script>
   </head>
@@ -18,11 +18,22 @@
         <div class="container">
           <div class="row">
             <div class="span4">
-              <a href="#" id="logo"><img src="images/logo.png" alt="Logo S.E.O" /></a>
+              <a href="/" id="logo"><img src="images/logo.png" alt="Logo S.E.O" /></a>
             </div>
             <ul class="pull-right unstyled" id="languages">
-              <li><a href="#" class="en<?php if ($_SESSION['lng'] == LNG_EN):?> selected<?php endif; ?>"><img src="images/en.png" alt="Drapeau anglais" /> English</a></li>
-              <li><a href="#" class="fr<?php if ($_SESSION['lng'] == LNG_FR):?> selected<?php endif; ?>"><img src="images/fr.png" alt="Drapeau français" /> Français</a></li>
+              <?php
+              $current_uri = $_SERVER['REQUEST_URI'];
+              if ($_SESSION['lng'] == LNG_EN):
+                $uri_en = $current_uri;
+                $uri_fr = (strpos($current_uri, 'en/') !== false) ? str_replace('en/', 'fr/', $current_uri) : str_replace(PARTIAL_URI, PARTIAL_URI . 'fr/', $current_uri);
+              else:
+                $uri_fr = $current_uri;
+                $uri_en = (strpos($current_uri, 'fr/') !== false) ? str_replace('fr/', 'en/', $current_uri) : str_replace(PARTIAL_URI, PARTIAL_URI . 'en/', $current_uri);
+
+              endif;
+              ?>
+              <li><a href="<?php echo $uri_en ?>" class="en<?php if ($_SESSION['lng'] == LNG_EN): ?> selected<?php endif; ?>"><img src="images/en.png" alt="Drapeau anglais" /> English</a></li>
+              <li><a href="<?php echo $uri_fr ?>" class="fr<?php if ($_SESSION['lng'] == LNG_FR): ?> selected<?php endif; ?>"><img src="images/fr.png" alt="Drapeau français" /> Français</a></li>
             </ul>
           </div>
         </div>
@@ -57,7 +68,7 @@
 
       <section id="container">
         <div class="container">
-           <?php echo $_CONTENTS ?>
+<?php echo $_CONTENTS ?>
         </div>
       </section>
       <div id="push"></div>

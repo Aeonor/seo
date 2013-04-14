@@ -1,5 +1,5 @@
 <?php
-$congres_past = getData('home', NO_LNG, 'congres_past', 'images/biarritz.jpng');
+$congres_past = getData('home', NO_LNG, 'congres_past', 'images/biarritz.jpg');
 $congres_past_label = getData('home', $_SESSION['lng'], 'congres_past_label', 'Biarritz, Juillet 2012');
 $congres_future = getData('home', NO_LNG, 'congres_future', 'images/shanghai.jpg');
 $congres_future_label = getData('home', $_SESSION['lng'], 'congres_future_label', 'Shanghai, Juillet 2013');
