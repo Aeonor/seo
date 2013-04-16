@@ -19,13 +19,13 @@ for ($i=1; $i<5; $i++) {
   <div class="span6">
     <figure>
       <img src="<?php echo $congres_past ?>" alt="Dernier congrès" />
-      <figcaption contentname="congres_past_label"><?php echo $congres_past_label ?></figcaption>
+      <figcaption data-content-name="congres_past_label"><?php echo $congres_past_label ?></figcaption>
     </figure>
   </div>
   <div class="span6">
     <figure>
       <img src="<?php echo $congres_future ?>" alt="Congrès de Shanghai" />   
-      <figcaption contentname="congres_future_label"><?php echo $congres_future_label ?></figcaption>
+      <figcaption data-content-name="congres_future_label"><?php echo $congres_future_label ?></figcaption>
     </figure>   
   </div>
 </div>
@@ -34,9 +34,9 @@ for ($i=1; $i<5; $i++) {
     <?php foreach($blocs AS $i=>$bloc) : ?>
     <li class="span3 ">
       <a href="#">
-        <h2 contentname="bloc_title_<?php echo $i ?>"><?php echo $bloc['title'] ?></h2>
-        <figure><span contentname="bloc_img_<?php echo $i ?>"><img src="<?php echo $bloc['img'] ?>" alt="Image de <?php echo $bloc['img'] ?>" /></span></figure>
-        <p contentname="bloc_content_<?php echo $i ?>"><?php echo $bloc['content'] ?></p>
+        <h2 data-content-name="bloc_title_<?php echo $i ?>"><?php echo $bloc['title'] ?></h2>
+        <figure><span data-content-name="bloc_img_<?php echo $i ?>"><img src="<?php echo $bloc['img'] ?>" alt="Image de <?php echo $bloc['img'] ?>" /></span></figure>
+        <p data-content-name="bloc_content_<?php echo $i ?>"><?php echo $bloc['content'] ?></p>
       </a>
     </li>
     <?php endforeach; ?>

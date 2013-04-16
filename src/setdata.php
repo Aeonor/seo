@@ -16,11 +16,21 @@ else {
     if (sizeof($name) == 2) {
       $page = $name[0];
       $name = $name[1];
+      
+      if ( in_array($page, array(LNG_FR, LNG_EN, NO_LNG) ) ) { // Langue, pas la page ^^
+        $lng = $page;
+        $page = $_POST['page'];        
+      }
+    }
+    elseif ( sizeof($name) == 3) {
+      $page = $name[0];
+      $lng = $name[1];
+      $name = $name[2];
     }
   }
 
   // set data
   setData($page, $lng, $name, $value);
   
-  echo json_encode(true);
+  echo json_encode(array($page, $lng, $name, $value));
 }

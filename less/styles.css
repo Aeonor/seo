@@ -37,7 +37,8 @@ body {
   font-size: 1.2em;
 }
 h1,
-h2 {
+h2,
+h3 {
   font-family: 'Kreon', Georgia, Arial, Verdana, Sans-serif;
   font-weight: 300;
 }
@@ -238,4 +239,48 @@ body > footer .clearfix {
 }
 #home .thumbnails figure img {
   width: 100%;
+}
+#qui_sommes_nous h2,
+#qui_sommes_nous h3 {
+  font-size: 1.6em;
+  color: #555;
+  margin: 0;
+  padding: 0;
+}
+#qui_sommes_nous h3 {
+  font-size: 1.3em;
+}
+#qui_sommes_nous h3.cursor {
+  cursor: pointer;
+}
+#qui_sommes_nous h3.cursor:hover {
+  color: #888888;
+}
+#qui_sommes_nous .bureau h2 {
+  margin-bottom: 10px;
+}
+#qui_sommes_nous .members {
+  margin-top: 5px;
+}
+#congres #container h2,
+#congres #container h3 {
+  font-size: 1.6em;
+  color: #555;
+  margin: 0;
+  padding: 0;
+}
+#congres #container h3 {
+  font-size: 1.3em;
+}
+#congres #container ul li a {
+  display: block;
+  text-decoration: none;
+  padding: 15px;
+  color: #333;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+#congres #container ul li a:hover {
+  background-color: #f0f0f0;
 }

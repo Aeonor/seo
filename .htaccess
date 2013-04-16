@@ -11,5 +11,4 @@ SetEnv MAGIC_QUOTES 0
     RewriteRule ^(en|fr)/(.*)$ $2?lng=$1 [QSA]
     RewriteRule ^index/$ index.php [QSA,L]
     RewriteRule ^index.html$ index.php [QSA,L]
-    RewriteRule ^setdata.html$ index.php?page=setdata [QSA,L]
 </IfModule>

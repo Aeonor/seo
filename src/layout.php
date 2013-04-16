@@ -21,19 +21,8 @@
               <a href="/" id="logo"><img src="images/logo.png" alt="Logo S.E.O" /></a>
             </div>
             <ul class="pull-right unstyled" id="languages">
-              <?php
-              $current_uri = $_SERVER['REQUEST_URI'];
-              if ($_SESSION['lng'] == LNG_EN):
-                $uri_en = $current_uri;
-                $uri_fr = (strpos($current_uri, 'en/') !== false) ? str_replace('en/', 'fr/', $current_uri) : str_replace(PARTIAL_URI, PARTIAL_URI . 'fr/', $current_uri);
-              else:
-                $uri_fr = $current_uri;
-                $uri_en = (strpos($current_uri, 'fr/') !== false) ? str_replace('fr/', 'en/', $current_uri) : str_replace(PARTIAL_URI, PARTIAL_URI . 'en/', $current_uri);
-
-              endif;
-              ?>
-              <li><a href="<?php echo $uri_en ?>" class="en<?php if ($_SESSION['lng'] == LNG_EN): ?> selected<?php endif; ?>"><img src="images/en.png" alt="Drapeau anglais" /> English</a></li>
-              <li><a href="<?php echo $uri_fr ?>" class="fr<?php if ($_SESSION['lng'] == LNG_FR): ?> selected<?php endif; ?>"><img src="images/fr.png" alt="Drapeau français" /> Français</a></li>
+              <li><a href="lang.php?lng=en" class="en<?php if ($_SESSION['lng'] == LNG_EN): ?> selected<?php endif; ?>"><img src="images/en.png" alt="Drapeau anglais" /> English</a></li>
+              <li><a href="lang.php?lng=fr" class="fr<?php if ($_SESSION['lng'] == LNG_FR): ?> selected<?php endif; ?>"><img src="images/fr.png" alt="Drapeau français" /> Français</a></li>
             </ul>
           </div>
         </div>
@@ -56,10 +45,12 @@
               </form>
               <div class="nav-collapse collapse pull-left">
                 <ul class="nav">
-                  <li class="active"><a href="#">Accueil</a></li>
-                  <li><a href="#">Qui sommes nous ?</a></li>
-                  <li><a href="#">Membres</a></li>
-                  <li><a href="#">Nous contacter</a></li>
+                  <li<?php if ( $_PAGE=='home'): ?> class="active"<?php endif; ?>><a href="index.php">Accueil</a></li>
+                  <li<?php if ( $_PAGE=='qui_sommes_nous'): ?> class="active"<?php endif; ?>><a href="qui_sommes_nous.php">Qui sommes nous ?</a></li>
+                  <li<?php if ( $_PAGE=='congres'): ?> class="active"<?php endif; ?>><a href="congres.php">Nos congrès</a></li>
+                  <li<?php if ( $_PAGE=='news'): ?> class="active"<?php endif; ?>><a href="news.php">News</a></li>
+                  <li<?php if ( $_PAGE=='partenaires'): ?> class="active"<?php endif; ?>><a href="partenaires.php">Nos partenaires</a></li>
+                  <li<?php if ( $_PAGE=='contact'): ?> class="active"<?php endif; ?>><a href="contact.php">Contact</a></li>
                 </ul>
               </div></div>
           </div>
@@ -78,8 +69,8 @@
       <div class="container">
         <div class="row">
           <div class="span3">
-            <div contentname="layout/adress"><?php echo getData('layout', $_SESSION['lng'], 'adress', '<strong>S.E.O</strong><br />Société Eurasienne d\'Ophtalmologie<br />1 rue du Moulin<br />75 000 Paris<br />') ?></div>
-            <a href="contact.html" contentname="layout/email"><?php echo getData('layout', NO_LNG, 'email', 'contact@seoph.com') ?></a>
+            <div data-content-name="layout/adress"><?php echo getData('layout', $_SESSION['lng'], 'adress', '<strong>S.E.O</strong><br />Société Eurasienne d\'Ophtalmologie<br />1 rue du Moulin<br />75 000 Paris<br />') ?></div>
+            <a href="contact.html" data-content-name="layout/email"><?php echo getData('layout', NO_LNG, 'email', 'contact@seoph.com') ?></a>
           </div>
           <div class="span9">
             <form class="pull-right hidden-phone">
@@ -106,6 +97,6 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="ckeditor/ckeditor.js"></script>
-    <script src="js/ckeditor.js"></script>
+    <script src="js/tinymce/tinymce.min.js"></script>
   </body>
 </html>

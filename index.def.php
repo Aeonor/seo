@@ -23,7 +23,42 @@ define('LNG_EN', 'en');
 define('LNG_FR', 'fr');
 define('NO_LNG', 'no');
 
+
 // FUNCTIONS
+function isAdmin() {
+  return true;
+}
+
+function slugify($text)
+{ 
+    $text = strip_tags($text);
+
+    // replace non letter or digits by -
+    $text = preg_replace('~[^\\pL\d]+~u', '-', $text);
+ 
+    // trim
+    $text = trim($text, '-');
+ 
+    // transliterate
+    if (function_exists('iconv'))
+    {
+        $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
+    }
+ 
+    // lowercase
+    $text = strtolower($text);
+ 
+    // remove unwanted characters
+    $text = preg_replace('~[^-\w]+~', '', $text);
+ 
+    if (empty($text))
+    {
+        return 'n-a';
+    }
+ 
+    return $text;
+}
+
 function getData($_page, $_lng, $_name, $_default_value = null) {
   global $CONNEXION;
   $mysql = $CONNEXION;
@@ -36,12 +71,18 @@ function setData($_page, $_lng, $_name, $_value) {
   global $CONNEXION;
   $mysql = $CONNEXION;
   $return = $mysql->selectOne('SELECT value FROM data WHERE page=? AND lng=? AND name=?', array(&$_page, &$_lng, &$_name));
-
-  // UPDATE
-  if ($return != false) {
-    $mysql->update('UPDATE data SET value=? WHERE page=? AND lng=? AND name=?', array(&$_value, &$_page, &$_lng, &$_name));
+  
+  // DELETE
+  $value_stripped = strip_tags($_value);
+  if ( empty($_value) OR empty($value_stripped) ) {
+    $mysql->delete('DELETE FROM data WHERE page=? AND lng=? AND name=?', array(&$_page, &$_lng, &$_name));    
   }
 
+  // UPDATE
+  elseif ($return != false) {
+    $mysql->update('UPDATE data SET value=? WHERE page=? AND lng=? AND name=?', array(&$_value, &$_page, &$_lng, &$_name));
+  }
+  
   // INSERT
   else {
     $mysql->insert('INSERT INTO data(page, lng, name, value) VALUES(?,?,?,?)', array(&$_page, &$_lng, &$_name, &$_value));
