@@ -96,7 +96,7 @@
     <!-- javascripts -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src="ckeditor/ckeditor.js"></script>
     <script src="js/tinymce/tinymce.min.js"></script>
+    <script src="js/all.js"></script>
   </body>
 </html>
