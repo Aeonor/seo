@@ -262,6 +262,9 @@ body > footer .clearfix {
 #qui_sommes_nous .members {
   margin-top: 5px;
 }
+#qui_sommes_nous .members .span3 div ul.unstyled li {
+  margin: 15px 0;
+}
 #congres #container h2,
 #congres #container h3 {
   font-size: 1.6em;
@@ -272,15 +275,16 @@ body > footer .clearfix {
 #congres #container h3 {
   font-size: 1.3em;
 }
-#congres #container ul li a {
+#congres #container .congres_content a {
   display: block;
   text-decoration: none;
   padding: 15px;
   color: #333;
+  text-align: center;
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   border-radius: 4px;
 }
-#congres #container ul li a:hover {
+#congres #container .congres_content a:hover {
   background-color: #f0f0f0;
 }

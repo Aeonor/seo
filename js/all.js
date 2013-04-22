@@ -19,6 +19,7 @@ function FileBrowser(field_name, url, type, win) {
 function activateTinyMCE() { 
   tinymce.init({
     selector: "*[data-content-name]",
+    language : 'fr',
     inline: true,
     theme: "modern",
     plugins: [
@@ -85,9 +86,20 @@ function listenerTinyMCE() {
 }
 
 $(function() {
+  // TinyMCE
   $('footer a.admin').on('click', function(){
     activateTinyMCE();
     listenerTinyMCE();
     return false;
   });    
+  
+  $('*[data-content-name]').on('focus', function() {
+     console.log($('.mce-tinymce.mce-tinymce-inline.mce-container.mce-panel.mce-floatpanel:visible').size());
+     $('.mce-tinymce.mce-tinymce-inline.mce-container.mce-panel.mce-floatpanel:visible').hide();
+  });
+  
+  // Qui sommes nous 
+  var h3 = $('#qui_sommes_nous .bureau h3').addClass('cursor').on('click', function() {
+    $(this).next('.bureau_content').slideToggle();
+  }).next('.bureau_content').hide();
 });
