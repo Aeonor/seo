@@ -44,8 +44,8 @@ function activateTinyMCE() {
     file_browser_callback : FileBrowser,
     autosave_ask_before_unload: true,
     forced_root_block : false,
-   force_br_newlines : true,
-   force_p_newlines : false
+    force_br_newlines : true,
+    force_p_newlines : false
 
   });
 }
@@ -85,18 +85,67 @@ function listenerTinyMCE() {
   });
 }
 
+function admin() {
+  $( "#admin-form" ).dialog({
+    autoOpen: false,
+    height: 300,
+    width: 400,
+    modal: true,
+    buttons: {
+      "Se connecter": function() {
+        $.post("login.php", {
+          ajax: true,
+          submit: 'submit', 
+          login: $( "#admin-form #name").val(),
+          password: $("#admin-form #password").val()
+        }, function(data) {
+          if ( data ) {
+            location.assign(location.href);
+          }
+          else {
+            $('#admin-form .validateTips').val('<strong>Une erreur s\'est produite lors de la tentative de connexion, réessayez');
+          }
+        });
+      },
+      Cancel: function() {
+        $( this ).dialog( "close" );
+      }
+    },
+    close: function() {
+        
+    }
+  });
+    
+  $('footer a.admin').on('click', function() {
+    $('#admin-form').dialog('open');
+  });
+ 
+}
+
 $(function() {
   // TinyMCE
-  $('footer a.admin').on('click', function(){
-    activateTinyMCE();
-    listenerTinyMCE();
+  $('#cache a.admin-button').data('active', false).on('click', function(){
+    if ( $(this).data('active')) {
+      $('<div class="ui-widget-overlay ui-front"></div><div class="loading"></div>').appendTo('body');
+      setTimeout(function() {
+        location.assign(location.href);
+      }, 1000); // recharge après 1seconde
+    }
+    else {
+      activateTinyMCE();
+      listenerTinyMCE();
+      $(this).html('<i class="icon-check icon-white"></i> Valider les modifications');
+    }
+    $(this).data('active', !$(this).data('active'));
     return false;
   });    
   
   $('*[data-content-name]').on('focus', function() {
-     console.log($('.mce-tinymce.mce-tinymce-inline.mce-container.mce-panel.mce-floatpanel:visible').size());
-     $('.mce-tinymce.mce-tinymce-inline.mce-container.mce-panel.mce-floatpanel:visible').hide();
+    $('.mce-tinymce.mce-tinymce-inline.mce-container.mce-panel.mce-floatpanel:visible').hide();
   });
+  
+  // Admin
+  admin();
   
   // Qui sommes nous 
   var h3 = $('#qui_sommes_nous .bureau h3').addClass('cursor').on('click', function() {
