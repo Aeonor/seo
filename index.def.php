@@ -59,6 +59,16 @@ function slugify($text)
     return $text;
 }
 
+function randomString($_length = 8) {
+    $s = 'abcdefghijklmnopqrstuvwxyz0123456789';
+    $sl = strlen($s) - 1;
+    $string = null;
+    do {
+        $string .= $s{rand(0,$sl)};
+    } while ( strlen($string) < $_length);
+    return $string;
+}
+
 function getData($_page, $_lng, $_name, $_default_value = null) {
   global $CONNEXION;
   $mysql = $CONNEXION;

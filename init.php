@@ -20,11 +20,13 @@ $_CONTENTS = ob_get_contents();
 ob_end_clean();
 
 // LAYOUT
-if ( isset($_POST['ajax']) AND $_POST['ajax'] === "true" ) {
+if ( isset($_POST['ajax']) AND $_POST['ajax'] === "true" ) { 
+  header('Content-type: application/json');
   echo $_CONTENTS;
 }
-else {
-  $path = __DIR__ . '/src/layout.php';
+else { 
+  $_LAYOUT = (isset($_LAYOUT) ) ? $_LAYOUT : 'layout'; 
+  $path = __DIR__ . '/src/'.$_LAYOUT.'.php';
   ob_start();
   if ( file_exists($path) ) { 
     include $path ;
