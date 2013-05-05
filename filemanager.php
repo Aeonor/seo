@@ -1,7 +1,5 @@
 <?php
+$_GET['page'] = 'filemanager';
+$_LAYOUT = 'fm-layout';
+require 'init.php';
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-?>

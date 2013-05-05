@@ -1,4 +1,9 @@
 <?php
+if ( !empty($_SESSION['admin']) && $_SESSION['admin'] ) {
+    session_destroy();
+    die(json_encode(false));
+}
+
 $passwordT = getData('login', NO_LNG, 'admin');
 
 if ( isset($_POST['submit'])) {

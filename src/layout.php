@@ -65,7 +65,7 @@
         <div class="row">
           <div class="span3">
             <div data-content-name="layout/adress"><?php echo getData('layout', $_SESSION['lng'], 'adress', '<strong>S.E.O</strong><br />Société Eurasienne d\'Ophtalmologie<br />1 rue du Moulin<br />75 000 Paris<br />') ?></div>
-            <a href="contact.html" data-content-name="layout/email"><?php echo getData('layout', NO_LNG, 'email', 'contact@seoph.com') ?></a>
+            <a href="contact.php" data-content-name="layout/email"><?php echo getData('layout', NO_LNG, 'email', 'contact@seoph.com') ?></a>
           </div>
           <div class="span9">
             <div class="clearfix">
