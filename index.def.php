@@ -98,3 +98,32 @@ function setData($_page, $_lng, $_name, $_value) {
     $mysql->insert('INSERT INTO data(page, lng, name, value) VALUES(?,?,?,?)', array(&$_page, &$_lng, &$_name, &$_value));
   }
 }
+
+function getGaleries() {
+  global $CONNEXION;
+  $mysql = $CONNEXION;
+  
+  $return = $mysql->select('SELECT * FROM galeries ORDER BY name');
+  return $return;
+}
+
+function getGalerie($_id) {
+  global $CONNEXION;
+  $mysql = $CONNEXION;
+  
+  return $mysql->selectOne('SELECT * FROM galeries WHERE id=?', array($_id));  
+}
+
+function getGalerieByName($_name) {
+  global $CONNEXION;
+  $mysql = $CONNEXION;
+  
+  return $mysql->selectOne('SELECT * FROM galeries WHERE name=?', array($_name));  
+}
+
+function addGalerie($_name) {
+  global $CONNEXION;
+  $mysql = $CONNEXION;
+  
+  return $mysql->insert('INSERT INTO galeries(name) VALUES(?)', array($_name));
+}

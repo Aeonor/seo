@@ -187,6 +187,32 @@ body > footer .clearfix {
   left: 0;
   z-index: 999;
 }
+img.contenteditable {
+  outline: 2px solid blue;
+}
+button.content-editable {
+  display: none;
+  margin: auto;
+}
+body.content-editable button.content-editable {
+  display: inherit;
+}
+.link-list {
+  text-align: center;
+}
+.link-list a {
+  display: block;
+  text-decoration: none;
+  padding: 15px;
+  color: #333;
+  text-align: center;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+.link-list a:hover {
+  background-color: #f0f0f0;
+}
 #home .congres {
   margin-top: 20px;
 }
@@ -289,7 +315,20 @@ body > footer .clearfix {
 #congres #container h3 {
   font-size: 1.3em;
 }
-#congres #container .congres_content a {
+#news #container h2,
+#news #container h3 {
+  font-size: 1.6em;
+  color: #555;
+  margin: 0;
+  padding: 0;
+}
+#news #container h3 {
+  font-size: 1.3em;
+}
+#news #container .congres_content {
+  text-align: center;
+}
+#news #container .congres_content a {
   display: block;
   text-decoration: none;
   padding: 15px;
@@ -299,6 +338,6 @@ body > footer .clearfix {
   -moz-border-radius: 4px;
   border-radius: 4px;
 }
-#congres #container .congres_content a:hover {
+#news #container .congres_content a:hover {
   background-color: #f0f0f0;
 }

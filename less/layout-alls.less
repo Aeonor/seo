@@ -124,3 +124,28 @@ body>footer {
 img.contenteditable {
     outline: 2px solid blue;
 }
+
+button.content-editable {
+  display: none;
+  margin: auto;
+}
+
+body.content-editable button.content-editable {
+  display: inherit;
+}
+
+
+.link-list {
+  text-align: center;
+  a {
+    display: block;
+    text-decoration: none;
+    padding: 15px; 
+    color: #333;
+    text-align: center;
+    .rounded(4px);
+    &:hover {
+      background-color: #f0f0f0;
+    }
+  }
+}
