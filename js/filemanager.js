@@ -1,4 +1,7 @@
 $(function() {
+  var activeTab = (typeof(TAB)=='undefined') ? 0 : TAB; 
+  $('#tabs').tabs({ active: activeTab });
+  
   if (FIELD && FIELD != '') {
     var fieldd = $(window.parent.document).find('#' + FIELD);
     $('.image-preview').on('click', function() {

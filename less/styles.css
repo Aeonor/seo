@@ -42,6 +42,9 @@ h3 {
   font-family: 'Kreon', Georgia, Arial, Verdana, Sans-serif;
   font-weight: 300;
 }
+h1 {
+  font-size: 2.2em;
+}
 p {
   text-align: justify;
 }

@@ -28,9 +28,11 @@ if (!empty($_POST['submit-gal']) && !empty($_POST['name'])) {
   } else {
     addGalerie($_POST['name']);
   }
-}
-?>
-
+  ?>
+<script>
+    var TAB = 2;
+</script>
+<?php } ?>
 <script>
   var FIELD = '<?php echo $fieldName; ?>';
   var IMAGE = '<?php echo $imageName; ?>';
@@ -48,10 +50,15 @@ if (!empty($_POST['submit-gal']) && !empty($_POST['name'])) {
     opacity: 1;
   }
 </style>
-
-<div class="row" style="padding:0 20px">  
+<div id="tabs">
+  <ul>
+    <li><a href="#tabs-1">Images</a></li>
+    <li><a href="#tabs-2">Vidéos</a></li>
+    <li><a href="#tabs-3">Galeries</a></li>
+  </ul>
+  
+<div class="row" id="tabs-1" style="padding:20px">  
   <div class="span6">
-    <h3>Images</h3>
 <?php
 $files = scandir($directory);
 foreach ($files AS $file):
@@ -81,11 +88,8 @@ endforeach;
 </div>
 
 
-<hr />
-
-<div class="row" style="padding:0 20px">
+<div class="row"  id="tabs-3" style="padding:20px">
   <div class="span6">
-    <h3>Galeries</h3>
     <ul class="nav nav-list">
 <?php
 $galeries = getGaleries();
@@ -105,7 +109,7 @@ endforeach;
       <span>
         <div class="control-group">
           <label class="control-label" for="f-name">
-            <span>Nouvelle galerie</span> :
+            <strong>Nouvelle galerie</strong> :
           </label>
           <div class="controls">
             <input type="text" id="f-name" placeholder="Nom de la galerie" name="name" required="required">&nbsp;&nbsp;
@@ -115,4 +119,6 @@ endforeach;
       </span>
     </form>
   </div>
+</div>
+
 </div>
