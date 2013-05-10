@@ -5,7 +5,7 @@ if (empty($_GET['field']) && !isset($_GET['image'])) {
 
 $fieldName = (isset($_GET['field']) ) ? $_GET['field'] : null;
 $imageName = (isset($_GET['image']) ) ? $_GET['image'] : null;
-$errorGal = null;
+$errorGal = $errorVid = null;
 ?>
 
 <?php
@@ -32,7 +32,29 @@ if (!empty($_POST['submit-gal']) && !empty($_POST['name'])) {
 <script>
     var TAB = 2;
 </script>
+<?php }
+
+if (!empty($_POST['submit-video']) && !empty($_POST['name'])) {
+  $name = $_POST['name'];
+  
+  // FILTRE
+  if ( preg_match("#(?<=v=)[a-zA-Z0-9-]+(?=&)|(?<=v\/)[^&\n]+(?=\?)|(?<=v=)[^&\n]+|(?<=youtu.be/)[^&\n]+#", $name, $matches) ) {
+    $name = $matches[0];
+  }
+  
+  $vid = getVideo($name);
+
+  if ($vid && !empty($vid)) {
+    $errorVid = 'La vidéo existe déjà !';
+  } else {
+    addVideo($name);
+  }
+  ?>
+<script>
+    var TAB = 1;
+</script>
 <?php } ?>
+
 <script>
   var FIELD = '<?php echo $fieldName; ?>';
   var IMAGE = '<?php echo $imageName; ?>';
@@ -86,6 +108,33 @@ endforeach;
     </form>
   </div>
 </div>
+  
+  <div class="row" id="tabs-2" style="padding: 20px">
+    <div class="span6">      
+        <?php $videos = getVideos(); 
+        foreach ( $videos AS $video): ?> 
+          <a href="#" class="image-preview" data-id="<?php ?>"><img src="http://img.youtube.com/vi/<?php echo $video; ?>/0.jpg" alt="Video" class="img-polaroid" /></a>       
+        <?php endforeach; ?>
+    </div>
+    <div class="span6" style="margin-top: 50px">
+      <?php if ( !empty($errorVid) ): ?>
+    <div class="alert alert-error"><?php echo $errorVid ?></div>
+    <?php endif; ?>
+     <form method="post" class="form-horizontal">
+      <span>
+        <div class="control-group">
+          <label class="control-label" for="f-name">
+            <strong>Nouvelle vidéo youtube</strong> :
+          </label>
+          <div class="controls">
+            <input type="text" id="f-name" placeholder="Id ou URL de la vidéo" name="name" required="required">&nbsp;&nbsp;
+            <input type="submit" class="btn btn-primary" name="submit-video" value="Ajouter" />
+          </div>
+        </div>
+      </span>
+    </form>
+  </div>
+  </div>
 
 
 <div class="row"  id="tabs-3" style="padding:20px">

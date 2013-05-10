@@ -344,3 +344,19 @@ body.content-editable button.content-editable {
 #news #container .congres_content a:hover {
   background-color: #f0f0f0;
 }
+#galerie figure {
+  position: relative;
+  overflow: hidden;
+  margin-right: 0;
+}
+#galerie figure img {
+  width: 100%;
+}
+#galerie figcaption {
+  background: rgba(0, 0, 0, 0.5);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 8px 10px;
+  color: #fff;
+}

@@ -42,7 +42,7 @@
                 <ul class="nav">
                   <li<?php if ($_PAGE == 'home'): ?> class="active"<?php endif; ?>><a href="index.php" data-content-name="layout/home"><?php echo getData('layout', $_SESSION['lng'], 'home', 'Home') ?></a></li>
                   <li<?php if ($_PAGE == 'qui_sommes_nous'): ?> class="active"<?php endif; ?>><a href="qui_sommes_nous.php" data-content-name="layout/about"><?php echo getData('layout', $_SESSION['lng'], 'about', 'About') ?></a></li>
-                  <li<?php if ($_PAGE == 'congres'): ?> class="active"<?php endif; ?>><a href="congres.php" data-content-name="layout/congres"><?php echo getData('layout', $_SESSION['lng'], 'congres', 'Congres') ?></a></li>
+                  <li<?php if ($_PAGE == 'congres' || $_PAGE == 'galerie'): ?> class="active"<?php endif; ?>><a href="congres.php" data-content-name="layout/congres"><?php echo getData('layout', $_SESSION['lng'], 'congres', 'Congres') ?></a></li>
                   <li<?php if ($_PAGE == 'news'): ?> class="active"<?php endif; ?>><a href="news.php" data-content-name="layout/news"><?php echo getData('layout', $_SESSION['lng'], 'news', 'News') ?></a></li>
                   <li<?php if ($_PAGE == 'partenaires'): ?> class="active"<?php endif; ?>><a href="partenaires.php" data-content-name="layout/partner"><?php echo getData('layout', $_SESSION['lng'], 'partner', 'Partners') ?></a></li>
                   <li<?php if ($_PAGE == 'contact'): ?> class="active"<?php endif; ?>><a href="contact.php" data-content-name="layout/contact"><?php echo getData('layout', $_SESSION['lng'], 'contact', 'Contact') ?></a></li>

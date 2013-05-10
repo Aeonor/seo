@@ -19,7 +19,7 @@ for ($i=1; $i<5; $i++) {
   <div class="span6">
     <figure>
       <img src="<?php echo $congres_past ?>" alt="Dernier congrès"  data-content-name="home/no/congres_past" />
-      <figcaption data-content-name="congres_past_label"  data-content-name="home/no/congres_future"><?php echo $congres_past_label ?></figcaption>
+      <figcaption data-content-name="congres_past_label"><?php echo $congres_past_label ?></figcaption>
     </figure>
   </div>
   <div class="span6">
