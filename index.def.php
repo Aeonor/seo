@@ -10,12 +10,12 @@ if ($_SERVER['HTTP_HOST'] == 'localhost') {
   require 'Mysql.class.php';
   $CONNEXION = Mysql::getInstance();
 } else {
-  define('DATABASE_HOST', 'db465914354.db.1and1.com');
-  define('DATABASE_USER', 'dbo465914354');
+  define('DATABASE_HOST', 'db470397123.db.1and1.com');
+  define('DATABASE_USER', 'dbo470397123');
   define('DATABASE_PASSWORD', 'limvotan64');
-  define('DATABASE_NAME', 'db465914354');
-  require 'Mssql.class.php';
-  $CONNEXION = Mssql::getInstance();
+  define('DATABASE_NAME', 'db470397123');
+  require 'Mysql.class.php';
+  $CONNEXION = Mysql::getInstance();
 }
 
 define('LNG_EN', 'en');

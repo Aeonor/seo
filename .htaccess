@@ -4,7 +4,7 @@ SetEnv MAGIC_QUOTES 0
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    RewriteBase /git/seo/
+    RewriteBase /
     RewriteCond %{REQUEST_FILENAME} !-f
 
     RewriteRule ^$ index.php [QSA,L]

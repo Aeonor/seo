@@ -9,7 +9,7 @@ $errorGal = $errorVid = null;
 ?>
 
 <?php
-$directory = realpath(__DIR__ . '/../upload/') . '\\';
+$directory = realpath(__DIR__ . '/../upload/') . '/';
 if (!empty($_POST['submit'])) {
   $file = $_FILES['f_file'];
   $fileName = $file['name'];
