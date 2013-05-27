@@ -5,16 +5,14 @@ $(function() {
   if (FIELD && FIELD != '') {
     var fieldd = $(window.parent.document).find('#' + FIELD);
     $('.image-preview').on('click', function() {
-      fieldd.val($(this).find('img').attr('src'));
+      fieldd.val(getData($(this)));
       window.parent.DIALOG.close();
     });
   }
   else if (IMAGE != '') {
-    console.log(IMAGE);
     var fieldd = $(window.parent.document).find('#' + IMAGE);
-    console.log(fieldd);
     $('.image-preview').on('click', function() {
-      fieldd.attr('src', $(this).find('img').attr('src'));
+      fieldd.attr('src', getData($(this)));
       parent.$('#' + IMAGE).trigger("change");
       window.parent.DIALOG.close();
     });
@@ -22,8 +20,16 @@ $(function() {
     
   $('.link-preview').on('click', function() {
     var fieldd = $(window.parent.document).find('#' + FIELD);
-    var id = $(this).attr('data-id');
+    var id = getData($(this));
     fieldd.val('galerie.php?id='+id);
     window.parent.DIALOG.close();
   });
 });
+
+function getData(field) {
+  if ( field.attr('data-id'))
+    return field.attr('data-id');
+  else if (field.find('img').size() > 0 ) {
+    return field.find('img').attr('src');
+  } 
+}

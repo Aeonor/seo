@@ -8,8 +8,8 @@
 
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">  
     <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-responsive.min.css">  
-    <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.10.2/themes/redmond/jquery-ui.css">
-    <link rel="stylesheet" type="text/css" href="less/styles.css">  
+    <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.10.3/themes/flick/jquery-ui.css">
+    <link rel="stylesheet/less" type="text/css" href="less/styles.less">  
     <!--[if lt IE 9]><script src="js/html5shiv.js"></script><![endif]-->
     <script src="js/less-1.3.3.min.js"></script>
   </head>

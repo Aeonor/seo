@@ -1,7 +1,8 @@
 // FOR TINYMCE
-function directFileBrowser(field) {
+function directFileBrowser(field, mode) {
+  var mode = mode || 'image';
   window.DIALOG = tinyMCE.editors[0].windowManager.open({
-    file: "filemanager.php?image=" + field,
+    file: "filemanager.php?"+mode+"=" + field,
     title: 'File Manager',
     width: 640,
     height: 450,
@@ -29,6 +30,12 @@ function FileBrowser(field_name, url, type, win) {
     input: field_name
   });
   return false;
+}
+
+function addPhoto() {
+  window.DIALOG = tinyMCE.activeEditor.windowManager.open({
+    title: 'Add a photo'
+  });
 }
 
 
@@ -187,5 +194,22 @@ $(function() {
       $('<a href="#"><strong>Nom du congrès</strong><br />Description du congrès</a>').appendTo(congresFuture);
     })
     .insertAfter(congresFuture);
+  }
+
+  // GALERIE
+  if ( $('#galerie').size() > 0 ) {
+    var rowphotos = $('.row.photos');  
+    var rowvideos = $('.row.videos');  
+    $('<button class="content-editable btn btn-primary">Ajouter une photo</button>')
+    .on('click', function() {
+     
+    })
+    .insertAfter(rowphotos);
+    
+    $('<button class="content-editable btn btn-primary">Ajouter une vidéo</button>')
+    .on('click', function() {
+     
+    })
+    .insertAfter(rowvideos);
   }
 });

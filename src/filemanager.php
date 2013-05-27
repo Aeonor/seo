@@ -113,7 +113,7 @@ endforeach;
     <div class="span6">      
         <?php $videos = getVideos(); 
         foreach ( $videos AS $video): ?> 
-          <a href="#" class="image-preview" data-id="<?php ?>"><img src="http://img.youtube.com/vi/<?php echo $video; ?>/0.jpg" alt="Video" class="img-polaroid" /></a>       
+          <a href="#" class="image-preview" data-id="http://youtu.be/<?php echo $video; ?>"><img src="http://img.youtube.com/vi/<?php echo $video; ?>/0.jpg" alt="Video" class="img-polaroid" /></a>       
         <?php endforeach; ?>
     </div>
     <div class="span6" style="margin-top: 50px">
