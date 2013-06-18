@@ -86,7 +86,7 @@ function listenerTinyMCE() {
     return false;
   }).on('focus', function() {
     $(this).data('content-editable-origin', $(this).html());
-  }).on('blur', function() {
+  }).on('blur', function() { 
     if ($(this).data('content-editable-origin') != $(this).html()) {
       $(this).trigger('change');
     }
@@ -102,7 +102,7 @@ function listenerTinyMCE() {
       content: content
     })
     .done(function(data) {
-            
+            console.log(data);
       })
     .fail(function(data) {
       alert('An error occurs saving your modifications');
